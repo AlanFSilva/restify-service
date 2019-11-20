@@ -96,6 +96,7 @@ const taskRoutes = (server) => {
     server.get('/tasks/search', (req, res, next) => {
         //let {searchBy, term, orderBy, direction} = req.query
         const data = utils.objectToLowerCase(req.query)
+        data.term = data.searchBy === "priority" ? utils.getPriorityValue(data.term) : data.term
         db.tasks().searchTasks(data).then((response) => {
             res.send(response)
             return next()

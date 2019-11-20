@@ -19,7 +19,8 @@ module.exports = {
     },
 
     getPriorityValue: (value) => {
-        switch (value) {
+        const key = value.toUpperCase()
+        switch (key) {
             case 'LOW':
                 return priority.LOW
             case 'NORMAL':
@@ -43,7 +44,7 @@ module.exports = {
         </body>`
     },
 
-    objectToLowerCase: (object) =>{
+    objectToLowerCase: (object) => {
         let newObject = {}
         Object.keys(object).forEach(key => {
             newObject[key] = object[key].toLowerCase()
