@@ -115,6 +115,27 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
   - **GET /tasks/:id**
   
     Retorna json da atividade referenciada pelo id
+
+ - **GET /tasks/search**
+  
+    Retorna uma lista de atividades a partir das informações inseridas.
+    
+    Os termos buscados poderão ser: 
+    - Id de um usário
+    - Id do projeto 
+    - Status de uma atividade ('OPEN', 'DOING', 'DONE', 'REOPEN', 'ONHOLD')
+    - Seu nível de prioridade ('LOW', 'NORMAL', 'HIGH', 'CRITICAL')
+    
+
+    ```
+    {
+      searchBy: varchar //{'user', 'project', 'status', 'priority'},
+      term: term searched,
+      orderBy: varchar //{'startdate', 'status', 'priority'},
+      direction: varchar //{'asc', 'desc'},
+    }
+    ```
+    
     
   - **PUT /tasks**
   
