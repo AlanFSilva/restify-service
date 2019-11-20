@@ -1,5 +1,5 @@
 # Restify Service
-Node web service using restify and knex with mysql as database
+Node WebService utilizando restify e knex com mysql como database
 
 [Arquivo do Insomnia](https://drive.google.com/file/d/1imAx_KpwE1QpKmlyPVSHK7r0410yyV1Z/view?usp=sharing) com as operações para teste do funcionamento da Api
 
