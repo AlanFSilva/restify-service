@@ -3,6 +3,7 @@ const corsMiddleware = require('restify-cors-middleware')
 const usersRoutes = require('../routes/users')
 const tasksRoutes = require('../routes/tasks')
 const projectsRoutes = require('../routes/projects')
+const utils = require('../utils')
 
 const server = restify.createServer()
 
@@ -23,8 +24,11 @@ tasksRoutes(server)
 projectsRoutes(server)
 
 server.get('/', (req, res, next) => {
-  res.send('home')
-  return next();
+  const data = utils.getHomeBody()
+  res.setHeader('Content-Type', 'text/html')
+  res.writeHead(200)
+  res.end(data)
+  return next()
 });
 
 
