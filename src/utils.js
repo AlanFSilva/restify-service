@@ -41,5 +41,13 @@ module.exports = {
             <p><a href="https://drive.google.com/file/d/1imAx_KpwE1QpKmlyPVSHK7r0410yyV1Z"  target="_blank">Arquivo do Insomnia</a> com as operações para teste do funcionamento da Api </p>
             <p> Arquivo de Dump para configuração do MySQL  <a href="https://drive.google.com/file/d/1B8Vc4jL5vmOe4H8RDfvUMV3n8u4mnKcl" target="_blank">mysql-rest-service-schema.json</a></p>
         </body>`
+    },
+
+    objectToLowerCase: (object) =>{
+        let newObject = {}
+        Object.keys(object).forEach(key => {
+            newObject[key] = object[key].toLowerCase()
+        });
+        return newObject
     }
 }

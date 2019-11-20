@@ -27,7 +27,6 @@ const tasksQueries = props => {
     newTask: (data) => {
       return new Promise((resolve, reject) => {
         let { title, priority, description, projectId, userId, startDate, status } = data
-        console.log(data)
         knex.insert({
           title: title,
           priority: priority,
@@ -43,7 +42,6 @@ const tasksQueries = props => {
           })
           .catch((error) => {
             reject(error)
-            console.log(error)
           })
       })
     },
@@ -94,6 +92,28 @@ const tasksQueries = props => {
           })
       })
     },
+    searchTasks: (data) => {
+      return new Promise((resolve, reject) => {
+        const { searchBy, term, orderBy, direction } = data
+        const search = searchBy === "user" ? "userId" : searchBy === "project" ? "projectId" : searchBy === "status"? "status" : "invalid"
+        const order =  orderBy === "startdate" ? "startDate" :  orderBy === "status" ? orderBy :  orderBy === "priority" ? orderBy : "invalid"
+        if(search !== "invalid" && order !== "invalid")
+        {
+          knex('tasks').where({ [search]: term }).orderBy(order, direction)
+          .then((rows) => {
+            resolve(rows)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+        }
+        else{
+          const errorMessage = search === "invalid"? "The searched term is invalid" : order === "invalid" ? "The order term is invalid": "The order and terms are incorrect" 
+          reject(`${errorMessage}, access https://github.com/AlanFSilva/restify-service/ to see the correct way"`)
+        }
+      })
+    },
+
   }
 }
 

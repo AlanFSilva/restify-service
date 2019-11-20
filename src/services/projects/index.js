@@ -27,7 +27,6 @@ const projectsQueries = props => {
     newProject: (data) => {
       return new Promise((resolve, reject) => {
         let { company, name, team } = data
-        console.log(data)
         knex.insert({ company: company, name: name, team: team }).into('projects')
           .then((row) => {
             let response = `new project Id: ${row}`

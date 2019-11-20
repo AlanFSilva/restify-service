@@ -1,5 +1,5 @@
 const db = require('../../services/knex')
-const utils = require('../../utils.js')
+const utils = require('../../utils')
 
 const taskRoutes = (server) => {
 
@@ -84,6 +84,19 @@ const taskRoutes = (server) => {
         let data = { ...req.body }
         data.endDate = data.status === "DONE" ? utils.getTimeStamp() : null
         db.tasks().chageStatus(data).then((response) => {
+            res.send(response)
+            return next()
+        })
+            .catch((error) => {
+                res.send(error)
+                return next()
+            })
+    });
+
+    server.get('/tasks/search', (req, res, next) => {
+        //let {searchBy, term, orderBy, direction} = req.query
+        const data = utils.objectToLowerCase(req.query)
+        db.tasks().searchTasks(data).then((response) => {
             res.send(response)
             return next()
         })
