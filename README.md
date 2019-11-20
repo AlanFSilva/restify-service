@@ -1,9 +1,9 @@
 # Restify Service
 Node WebService utilizando restify e knex com mysql como database
 
-[Arquivo do Insomnia](https://drive.google.com/file/d/1imAx_KpwE1QpKmlyPVSHK7r0410yyV1Z/view?usp=sharing) com as operações para teste do funcionamento da Api
+[Arquivo do Insomnia](https://drive.google.com/file/d/1imAx_KpwE1QpKmlyPVSHK7r0410yyV1Z) com as operações para teste do funcionamento da Api
 
-Segue um aqruivo de Dump para configuração do MySQL [mysql-rest-service-schema.json](https://drive.google.com/file/d/1B8Vc4jL5vmOe4H8RDfvUMV3n8u4mnKcl/view?usp=sharing)
+Segue um arquivo de Dump para configuração do MySQL [mysql-rest-service-schema.json](https://drive.google.com/file/d/1B8Vc4jL5vmOe4H8RDfvUMV3n8u4mnKcl)
 
 ## Operações da API
 O servidor está rodando em [localhost](http://localhost:3000/) na porta 3000. 
