@@ -59,7 +59,7 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
 ### Módulo Projects
   - **GET /project/all**
   
-   Retorna Lista de todos os projetos registrados
+    Retorna Lista de todos os projetos registrados
    
   - **GET /project/:id**
   
@@ -67,7 +67,7 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
     
   - **PUT /project**
   
-   Registra um novo projeto, retornando o id do mesmo 
+    Registra um novo projeto, retornando o id do mesmo 
    
     ```
     {
@@ -92,7 +92,7 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
     
   - **POST /project/manage-team**
   
-   Remove e adiciona um novo membro a um projeto registrado, com base nos id's
+    Remove e adiciona um novo membro a um projeto registrado, com base nos id's
    
     ```
     {
@@ -105,7 +105,7 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
   
   - **DELETE /project/:id**
   
-  Remove um projeto a partir de seu id
+    Remove um projeto a partir de seu id
 
 ### Módulo Tasks
   - **GET /tasks/all**
@@ -148,7 +148,7 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
     
   - **POST /tasks/change-status**
   
-   Atualiza o status de uma atividade, a partir de seu id
+    Atualiza o status de uma atividade, a partir de seu id
    
     ```
     {
@@ -159,4 +159,4 @@ As configurações de conexão com o MySql se encontram no arquivo ./src/service
     
   - **DELETE /tasks/:id**
   
-   remove uma atividade a partir de seu id
+    Remove uma atividade a partir de seu id
