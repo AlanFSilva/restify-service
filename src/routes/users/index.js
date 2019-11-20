@@ -26,8 +26,8 @@ const userRoutes = (server) => {
     })
 
     server.post('/user', (req, res, next) => {
-        //let {name, email, password, type} = req.body
-        db.users().newUser(req.body).then((response) => {
+        //let {userId, name, email, password, type} = req.body
+        db.users().update(req.body).then((response) => {
             res.send(response)
             return next()
         })
@@ -38,8 +38,8 @@ const userRoutes = (server) => {
     })
 
     server.put('/user', (req, res, next) => {
-        //let {userId, name, email, password, type} = req.body
-        db.users().update(req.body).then((response) => {
+        //let {name, email, password, type} = req.body
+        db.users().newUser(req.body).then((response) => {
             res.send(response)
             return next()
         })

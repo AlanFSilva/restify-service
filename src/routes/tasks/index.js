@@ -27,20 +27,6 @@ const taskRoutes = (server) => {
     });
 
     server.post('/tasks', (req, res, next) => {
-        //let {title, priority, description, projectId, userId, status} = req.body
-        const data = { ...req.body, startDate: utils.getTimeStamp() }
-        data.priority = utils.getPriorityValue(data.priority)
-        db.tasks().newTask(data).then((response) => {
-            res.send(response)
-            return next()
-        })
-            .catch((error) => {
-                res.send(error)
-                return next()
-            })
-    });
-
-    server.put('/tasks', (req, res, next) => {
         //let {taskId, title, priority, description, projectId, userId, status} = req.body
         let data = { ...req.body, startDate: utils.getTimeStamp() }
         data.priority = utils.getPriorityValue(data.priority)
@@ -59,7 +45,26 @@ const taskRoutes = (server) => {
             res.send("Error: Invalid priority format")
             return next()
         }
+    });
 
+    server.put('/tasks', (req, res, next) => {
+        //let {title, priority, description, projectId, userId, status} = req.body
+        const data = { ...req.body, startDate: utils.getTimeStamp() }
+        data.priority = utils.getPriorityValue(data.priority)
+        if (data.priority !== "ERROR") {
+            db.tasks().newTask(data).then((response) => {
+                res.send(response)
+                return next()
+            })
+                .catch((error) => {
+                    res.send(error)
+                    return next()
+                })
+        }
+        else {
+            res.send("Error: Invalid priority format")
+            return next()
+        }
     });
 
     server.del('/tasks/:id', (req, res, next) => {

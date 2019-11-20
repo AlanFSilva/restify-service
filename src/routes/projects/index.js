@@ -26,8 +26,8 @@ const projectRoutes = (server) => {
     })
 
     server.post('/project', (req, res, next) => {
-        //let { company, name, team } = req.body
-        db.projects().newProject(req.body).then((response) => {
+        //let { projectId, company, name, team } = req.body
+        db.projects().update(req.body).then((response) => {
             res.send(response)
             return next()
         })
@@ -38,8 +38,8 @@ const projectRoutes = (server) => {
     })
 
     server.put('/project', (req, res, next) => {
-        //let { projectId, company, name, team } = req.body
-        db.projects().update(req.body).then((response) => {
+        //let { company, name, team } = req.body
+        db.projects().newProject(req.body).then((response) => {
             res.send(response)
             return next()
         })
